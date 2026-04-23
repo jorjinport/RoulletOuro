@@ -1,0 +1,5 @@
+{
+  "name": "Exu do Ouro - Roulette Analyzer",
+  "description": "A high-end casino roulette analysis tool with bias detection and cylinder tracking.",
+  "requestFramePermissions": ["camera"]
+}

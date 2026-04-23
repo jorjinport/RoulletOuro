@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-gold: #d4af37;
+  --color-gold-light: #f9e29c;
+  --color-gold-dark: #8b6b23;
+  --color-dark-bg: #09090b;
+  --color-emerald-glow: #10b981;
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(200%); opacity: 0; }
+  }
+
+  --animate-scanline: scanline 4s linear infinite;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-white font-sans antialiased;
+    background: 
+      radial-gradient(circle at 10% -20%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+      radial-gradient(circle at -20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 45%),
+      radial-gradient(circle at 120% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+      #09090b;
+    background-attachment: fixed;
+  }
+}
+
+.glass-panel {
+  @apply bg-[#0c0c0e]/60 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_15px_35px_0_rgba(0,0,0,0.6)];
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  @apply border-white/20 bg-[#121214]/60;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #fff 0%, #f9e29c 30%, #d4af37 60%, #8b6b23 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(212,175,55,0.2));
+}
+
+.premium-border {
+  @apply border-white/15 shadow-[0_0_40px_rgba(255,255,255,0.02)] ring-1 ring-white/5;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f9e29c 0%, #d4af37 50%, #8b6b23 100%);
+}
+
+.number-circle {
+  @apply w-10 h-10 rounded-2xl flex items-center justify-center text-base font-black border border-white/10 shadow-lg;
+  transition: transform 0.2s ease;
+}
+
+.number-circle:active {
+  @apply scale-90;
+}
+
+.number-red { @apply bg-red-600/90 border-red-400/30; }
+.number-black { @apply bg-zinc-900 border-white/10; }
+.number-green { @apply bg-emerald-600/90 border-emerald-400/30; }
+
+.highlight-target {
+  @apply ring-2 ring-emerald-400/50 shadow-[0_0_20px_rgba(16,185,129,0.4)];
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
